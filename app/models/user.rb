@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
+  attr_accessible :name, :email
 
-has_many :posts
+  def formatted_email
+    "#{@name} <#{@email}>"
+
+  end
+
+  has_many :posts
 
 end
