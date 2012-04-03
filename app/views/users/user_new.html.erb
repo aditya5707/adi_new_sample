@@ -1,4 +1,35 @@
-<%	 provide(:title,'New') %>
+<%	 provide(:title,'Sign Up') %>
 <div class="center hero-unit" style="float:left;margin-top : 170px;margin-left :10px">
-  <p><%=	link_to "Sign Up" ,"",:class => "btn btn-large btn-primary" %></p>
+  <div style="float:left;">
+    <%=	 form_for(@user, :url => users_user_create_path, :method => "POST")  do |f| %>
+        <div>
+          <%=	 f.label:Name %>
+        </div>
+        <div>
+          <%= f.text_field :name  %>
+        </div>
+        <div>
+          <%=	 f.label:Username %>
+        </div>
+        <div>
+          <%= f.text_field :email  %>
+        </div>
+        <div>
+          <%=	 f.label:Password %>
+        </div>
+        <div>
+          <%= f.password_field :password %>
+        </div>
+        <div>
+          <%=	 f.label:Confirm_password %>
+        </div>
+        <div>
+          <%= f.password_field :password_confirmation  %>
+        </div>
+        <div>
+          <%= f.submit :submit ,:class => "btn btn-large btn-info"%>
+        </div>
+
+    <% end %>
+  </div>
 </div>

@@ -11,7 +11,13 @@ class UsersController < ApplicationController
   end
 
   def user_create
-
+    logger.info "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx"
+    @user = User.new(params[:user])
+    if @user.save
+      redirect_to user_index_path
+    else
+      render :action => :user_new
+    end
   end
 
   def user_edit

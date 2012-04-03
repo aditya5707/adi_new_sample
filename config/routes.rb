@@ -5,11 +5,11 @@ AdiSampleNew::Application.routes.draw do
 
   match '/user_show', :to => 'users#user_show'
 
-  match '/', :to => 'users#user_new'
+  match '/user_new', :to => 'users#user_new'
 
   match '/user_edit', :to => 'users#user_edit'
 
-  get "users/user_create"
+  post "users/user_create"
 
   get "users/user_destroy"
 
@@ -64,7 +64,7 @@ AdiSampleNew::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-#  root :to => 'users#user_new'
+  root :to => 'users#user_new'
 
   # See how all your routes lay out with "rake routes"
 
