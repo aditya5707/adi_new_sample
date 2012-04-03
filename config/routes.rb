@@ -1,17 +1,19 @@
 AdiSampleNew::Application.routes.draw do
-  get "users/user_index"
+#  get "users/user_index"
 
-  get "users/user_show"
+  match '/user_index', :to => 'users#user_index'
 
-  get "users/user_new"
+  match '/user_show', :to => 'users#user_show'
 
-  get "users/user_edit"
+  match '/', :to => 'users#user_new'
+
+  match '/user_edit', :to => 'users#user_edit'
 
   get "users/user_create"
 
   get "users/user_destroy"
 
-  get "users/user_update"
+  match '/user_update', :to => 'users#user_update'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,7 +64,7 @@ AdiSampleNew::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'users#user_index'
+#  root :to => 'users#user_new'
 
   # See how all your routes lay out with "rake routes"
 
