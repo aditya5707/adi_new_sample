@@ -1,17 +1,15 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
-
+<% provide(:title, "Sign in") %>
 <div class="center hero-unit" style="float:left;margin-top : 170px;margin-left :580px">
   <div style="float:left;">
     <%= link_to image_tag("rails.png", :height => 60, :width => 60) %>
-    <%= form_for(@user, :url => user_edit_user_path, :method => "PUT") do |f| %>
-
-        <div>
-          <%=	 f.label:Name %>
-        </div>
-        <div>
-          <%= f.text_field :name  %>
-        </div>
+    <!--<ul>-->
+      <!--<h2>Not able to Sign Up.These could be the reasons</h2>-->
+      <!--<li>Wrong username</li>-->
+      <!--<li>User already present</li>-->
+      <!--<li>Password less than 6 characters</li>-->
+    <!--</ul>-->
+    <%=	 form_for(:session, :url => sessions_path, :method => "POST")  do |f| %>
+        
         <div>
           <%=	 f.label:Username %>
         </div>
@@ -24,14 +22,12 @@
         <div>
           <%= f.password_field :password %>
         </div>
+
         <div>
-          <%=	 f.label:Confirm_password %>
-        </div>
-        <div>
-          <%= f.password_field :password_confirmation  %>
+          <%= f.submit :submit ,:class => "btn btn-large btn-info"%>
         </div>
 
-        <%= f.submit "Save changes", :class => "btn btn-large btn-primary" %>
     <% end %>
+    <p>New User?<%= link_to "Sign Up Now!" , user_new_path %></p>
   </div>
 </div>

@@ -14,12 +14,13 @@
     <div class="container">
       <%= link_to "SAMPLE APPLICATION","", :class => "btn btn-large btn-danger" %>
       <%=	flash.each do |key,value|  %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Index", user_index_path %></li>
-          <li><%= link_to "Sign in", '#' %></li>
+         <%= render :partial => 'shared/header' %>
+
+
         </ul>
       </nav>
     </div>
@@ -29,7 +30,7 @@
 <div>
 
   <%= yield %>
-  <!--<p><%= render 'layouts/footer' %></p>-->
+
 </div>
 </body>
 </html>

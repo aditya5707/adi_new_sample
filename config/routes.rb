@@ -5,7 +5,7 @@ AdiSampleNew::Application.routes.draw do
 
   match '/user_new', :to => 'users#user_new'
 
-  match '/user_edit', :to => 'users#user_edit'
+#  match '/user_edit', :to => 'users#user_edit'
 
 #  match '/user_show/:id', :to => 'users#user_show' , :as => 'show_user'
 
@@ -13,11 +13,19 @@ AdiSampleNew::Application.routes.draw do
 
   get "users/user_destroy"
 
-  match '/user_update', :to => 'users#user_update'
+#  match '/user_update', :to => 'users#user_update'
+
+  resources :sessions, :only => [:new,:create,:destroy]
+
+  match '/sign_in', :to => 'sessions#new', :via => :get
+
+  match '/sign_out', :to => 'sessions#destroy', :via => :delete
 
   resources :users do
     member do
       get :user_show
+      put :user_edit
+      put :user_update
     end
   end
 
