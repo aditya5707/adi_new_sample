@@ -1,7 +1,15 @@
 <%	 provide(:title,'Sign Up') %>
-<div class="center hero-unit" style="float:left;margin-top : 170px;margin-left :10px">
+<div class="center hero-unit" style="float:left;margin-top : 170px;margin-left :580px">
   <div style="float:left;">
+    <%= link_to image_tag("rails.png", :height => 60, :width => 60) %>
+    <!--<ul>-->
+      <!--<h2>Not able to Sign Up.These could be the reasons</h2>-->
+      <!--<li>Wrong username</li>-->
+      <!--<li>User already present</li>-->
+      <!--<li>Password less than 6 characters</li>-->
+    <!--</ul>-->
     <%=	 form_for(@user, :url => users_user_create_path, :method => "POST")  do |f| %>
+        <%=	 render 'users/error_messages' %>
         <div>
           <%=	 f.label:Name %>
         </div>

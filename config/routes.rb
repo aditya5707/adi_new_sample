@@ -3,17 +3,27 @@ AdiSampleNew::Application.routes.draw do
 
   match '/user_index', :to => 'users#user_index'
 
-  match '/user_show', :to => 'users#user_show'
-
   match '/user_new', :to => 'users#user_new'
 
   match '/user_edit', :to => 'users#user_edit'
+
+#  match '/user_show/:id', :to => 'users#user_show' , :as => 'show_user'
 
   post "users/user_create"
 
   get "users/user_destroy"
 
   match '/user_update', :to => 'users#user_update'
+
+  resources :users do
+    member do
+      get :user_show
+    end
+  end
+
+#  resources :users do
+#    resources :posts
+#  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

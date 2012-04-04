@@ -2,19 +2,20 @@
 <html>
 <head>
   <title> <%= full_title(yield(:title))  %></title>
-  <link href= "assets/css/bootstrap.css" rel="stylesheet">
+  <link href= "assets/stylesheets/bootstrap.css" rel="stylesheet">
   <!--<link href= "assets/css/custom.css.scss" rel="stylesheet">-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <%= link_to image_tag("rails.png") %>
     <div class="container">
       <%= link_to "SAMPLE APPLICATION","", :class => "btn btn-large btn-danger" %>
+      <%=	flash.each do |key,value|  %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Index", user_index_path %></li>
@@ -24,7 +25,9 @@
     </div>
   </div>
 </header>
+
 <div>
+
   <%= yield %>
   <!--<p><%= render 'layouts/footer' %></p>-->
 </div>
